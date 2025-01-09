@@ -1,0 +1,44 @@
+{
+  "name": "lyb-js",
+  "version": "1.1.4",
+  "description": "lyb自用JS方法库",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc & vite build"
+  },
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "umd"
+  ],
+  "author": {
+    "name": "冷弋白",
+    "email": "1329670984@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lengyibai/lyb-js.git"
+  },
+  "keywords": [
+    "冷弋白",
+    "lengyibai",
+    "lyb",
+    "lyb-js"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "decimal.js": "^10.4.3",
+    "vite": "^4.5.5"
+  }
+}
