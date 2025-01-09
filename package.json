@@ -1,11 +1,11 @@
 {
   "name": "lyb-js",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "lyb自用JS方法库",
   "license": "ISC",
-  "main": "./dist/index.js",
   "type": "module",
   "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc & vite build"
   },
