@@ -137,7 +137,6 @@ export const Data = {
 
   /** @description 数组乱序
    * @param arr 需要乱序的数组
-   * @link 了解更多：https://www.npmjs.com/package/lyb-js
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsShuffleArray-数组乱序
    */
   libJsShuffleArray,

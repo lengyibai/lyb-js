@@ -169,14 +169,15 @@ console.log(t); //"string"
 > 返回数据类型
 
 ```ts
-const n = libJsGetDataType(123);
-console.log(n); //"number"
 
-const s = libJsGetDataType("hello");
-console.log(s); //"string"
+const result1 = libJsGetDataType(123);
+console.log(result1); //"number"
 
-const a = libJsGetDataType([1, 2, 3]);
-console.log(a); //"array"
+const result2 = libJsGetDataType("hello");
+console.log(result2); //"string"
+
+const result3 = libJsGetDataType([1, 2, 3]);
+console.log(result3); //"array"
 ```
 
 ### LibJsPromiseTimeout-延时执行
@@ -366,8 +367,8 @@ libJsSaveJson("example.txt", "Hellow World!");
 > 将字节单位的数字格式化
 
 ```ts
-const [size, unit, formatted] = libJsFormatterByte(2048);
-console.log(size, unit, formatted); //2.00 KB 2.00 KB
+const result = libJsFormatterByte(2048);
+console.log(result); //[2.00, KB, 2.00 KB]
 ```
 
 ### LibJsMaskPhoneNumber-隐藏手机号码
@@ -381,14 +382,14 @@ console.log(masked); //138****5678
 
 ### LibJsNumberUnit-数字单位
 
-> 大于指定数字，用单位标识，你甚至可以用中文
+> 将大于或等于单位组的属性值，则使用它的属性名作为单位，你甚至可以用中文键名
 
 ```ts
-const [value, unit] = libJsNumberUnit(1500, { K: 1000, M: 1000000 });
-console.log(value, unit); //1.50 K
+const result1 = libJsNumberUnit(1500, { K: 1000, M: 1000000 });
+console.log(result1); //1.5K
 
-const [value, unit] = libJsNumberUnit(0.05, { 分: 0.01, 角: 0.1, 元: 1 });
-console.log(value, unit); //0.05 分
+const result2 = libJsNumberUnit(0.05, { 分: 0.01, 角: 0.1, 元: 1 });
+console.log(result2); //0.05分
 ```
 
 ### LibJsNumComma-数字逗号
@@ -405,17 +406,17 @@ console.log(formatted); //1,234,567.89
 > 将秒数格式化为中文时间描述，支持扩展到年
 
 ```ts
-const a = libJsSecondsFormatterChinese(100000);
-console.log(a); //"1天3小时46分40秒"
+const result1 = libJsSecondsFormatterChinese(100000);
+console.log(result1); //"1天3小时46分40秒"
 
-const b = libJsSecondsFormatterChinese(31536000);
-console.log(b); //"1年"
+const result2 = libJsSecondsFormatterChinese(31536000);
+console.log(result2); //"1年"
 
-const c = libJsSecondsFormatterChinese(3600);
-console.log(c); //"1小时"
+const result3 = libJsSecondsFormatterChinese(3600);
+console.log(result3); //"1小时"
 
-const d = libJsSecondsFormatterChinese(90);
-console.log(d); //"1分30秒"
+const result4 = libJsSecondsFormatterChinese(90);
+console.log(result4); //"1分30秒"
 ```
 
 ## Math-数学
@@ -448,14 +449,14 @@ console.log(deg); //180
 > 计算两点角度
 
 ```ts
-const a = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 0 });
-console.log(a); //0
+const result1 = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 0 });
+console.log(result1); //0
 
-const b = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 1 });
-console.log(b); //45
+const result2 = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 1 });
+console.log(result2); //45
 
-const c = libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 });
-console.log(c); //90
+const result3 = libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 });
+console.log(result3); //90
 ```
 
 ### LibJsCoordsDistance-两点距离
@@ -463,14 +464,14 @@ console.log(c); //90
 > 计算两点距离
 
 ```ts
-const a = libJsCoordsDistance({ x: 0, y: 0 }, { x: 3, y: 4 });
-console.log(a); //5
+const result1 = libJsCoordsDistance({ x: 0, y: 0 }, { x: 3, y: 4 });
+console.log(result1); //5
 
-const b = libJsCoordsDistance({ x: 1, y: 1 }, { x: 4, y: 5 });
-console.log(b); //5
+const result2 = libJsCoordsDistance({ x: 1, y: 1 }, { x: 4, y: 5 });
+console.log(result2); //5
 
-const c = libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 });
-console.log(c); //0
+const result3 = libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 });
+console.log(result3); //0
 ```
 
 ### LibJsDecimal-高精度计算
@@ -478,14 +479,14 @@ console.log(c); //0
 > 计算两个数的运算结果，并保留指定位数的小数
 
 ```ts
-const a = libJsDecimal(10, 3, "+");
-console.log(a); //13
+const result1 = libJsDecimal(10, 3, "+");
+console.log(result1); //13
 
-const b = libJsDecimal(10, 3, "-");
-console.log(b); //7
+const result2 = libJsDecimal(10, 3, "-");
+console.log(result2); //7
 
-const c = libJsDecimal(10, 3, "/", 2);
-console.log(c); //3.33
+const result3 = libJsDecimal(10, 3, "/", 2);
+console.log(result3); //3.33
 ```
 
 ## Misc-杂项
