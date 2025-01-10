@@ -1,10 +1,5 @@
 /** @description 数字步进器
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const stepper = new libNumerStepper(10, (index) => console.log(index));
- * stepper.down("add"); // 索引加1
- * stepper.updateIndex(5); // 更新索引为5
- * stepper.down("sub"); // 索引减1
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibNumerStepper-数字步进器
  */
 export class libNumerStepper {
   /** 数字变动时触发 */

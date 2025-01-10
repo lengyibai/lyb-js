@@ -1,9 +1,6 @@
 /** @description 将数组打乱顺序
  * @param arr 需要乱序的数组
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const shuffled = libJsShuffleArray([1, 2, 3, 4, 5]);
- * console.log(shuffled); //[3, 5, 2, 1, 4] （结果每次不同）
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsShuffleArray-数组乱序
  */
 export const libJsShuffleArray = <T>(arr: T[]): T[] => {
   const newArr = [...arr];

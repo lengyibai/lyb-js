@@ -1,10 +1,7 @@
 /** @description 翻转指定索引后面的数组
  * @param arr 数组
  * @param index 开始索引
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libReverseArrayFromIndex([1, 2, 3, 4, 5], 1);
- * // [1, 2, 5, 4, 3]
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibReverseArrayFromIndex-数组定位翻转
  */
 export const libReverseArrayFromIndex = <T>(arr: T[], index: number): T[] => {
   if (index < 0 || index >= arr.length) {

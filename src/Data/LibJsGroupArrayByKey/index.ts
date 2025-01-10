@@ -3,10 +3,7 @@
  * @param arr 要分组的数组
  * @param key 分组的键
  * @returns 分组后的对象
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const grouped = libJsGroupArrayByKey([{ id: 1, name: 'A' }, { id: 2, name: 'B' }, { id: 1, name: 'C' }], 'id');
- * console.log(grouped); //{ 1: [{ id: 1, name: 'A' }, { id: 1, name: 'C' }], 2: [{ id: 2, name: 'B' }] }
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsGroupArrayByKey-分类汇总
  */
 export const libJsGroupArrayByKey = (arr: any[] = [], key: string) => {
   return key

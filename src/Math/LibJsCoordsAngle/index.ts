@@ -1,11 +1,7 @@
 /** @description 计算两点角度
  * @param coord1 起点坐标
  * @param coord2 终点坐标
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 0 }); //0
- * libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 1 }); //45
- * libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 }); //90
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsCoordsAngle-两点角度
  */
 export const libJsCoordsAngle = (
   coord1: { x: number; y: number },

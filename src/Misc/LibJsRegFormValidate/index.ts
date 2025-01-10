@@ -5,22 +5,7 @@ export type ValidationResult = { key: string; msg: string; name: string };
  * @param form 表单数据对象
  * @param rules 验证规则数组
  * @returns 验证结果数组，包含未通过验证的项
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const form = { username: "john", email: "john@example.com" };
- * const rules = [
- *   { key: "username", verify: /^[a-zA-Z0-9]{3,}$/, msg: "用户名不合法", name: "用户名" },
- *   { key: "email", verify: /^\S+@\S+\.\S+$/, msg: "邮箱格式不正确", name: "邮箱" },
- * ];
- * libJsRegFormValidate(form, rules);
- * //返回结果: []
- *
- * const invalidForm = { username: "jo", email: "invalid-email" };
- * libJsRegFormValidate(invalidForm, rules);
- * //返回结果: [
- * //  { key: "username", msg: "用户名不合法", name: "用户名" },
- * //  { key: "email", msg: "邮箱格式不正确", name: "邮箱" }
- * //]
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsRegFormValidate-表单验证
  */
 export const libJsRegFormValidate = (
   form: Record<string, any>,

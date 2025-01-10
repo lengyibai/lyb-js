@@ -15,24 +15,9 @@ export type LibJsImageOptimizerOptionsParams = {
 
 /** @description 图片压缩，支持png压缩，保留透明背景
  * @param obj 压缩参数
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsImageOptimizerOptionsParams({
- *   file: myFile,
- *   ratio: 0.8,
- *   width: 800,
- *   maxSize: 1024,
- *   success: (formData, file, url) => {
- *     console.log('压缩成功', formData, file, url);
- *   },
- *   fail: (error) => {
- *     console.error('压缩失败', error);
- *   }
- * });
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsImageOptimizer-图片压缩
  */
-export const libJsImageOptimizer = (
-  obj: LibJsImageOptimizerOptionsParams
-) => {
+export const libJsImageOptimizer = (obj: LibJsImageOptimizerOptionsParams) => {
   const canvas = document.createElement("canvas");
   canvas.classList.add("imageOptimizer");
   document.body.appendChild(canvas);

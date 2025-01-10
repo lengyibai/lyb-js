@@ -7,12 +7,7 @@ dayjs.extend(duration);
  * @description 将秒数格式化为中文时间描述，支持扩展到年
  * @param seconds 秒数
  * @returns 格式化后的中文时间
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsSecondsFormatterChinese(100000); //"1天3小时46分40秒"
- * libJsSecondsFormatterChinese(31536000); //"1年"
- * libJsSecondsFormatterChinese(3600); //"1小时"
- * libJsSecondsFormatterChinese(90); //"1分30秒"
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsSecondsFormatterChinese-中文时间
  */
 export const libJsSecondsFormatterChinese = (seconds: number) => {
   const duration = dayjs.duration(seconds, "seconds");

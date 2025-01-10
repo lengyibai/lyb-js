@@ -10,11 +10,7 @@ export interface LibTimeGreetingParams {
 /**
  * @description 根据当前时间返回问候语
  * @param greet 自定义问候语对象
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsTimeGreeting(); //根据当前时间返回默认问候语
- * libJsTimeGreeting({ morning: "早安" }); //自定义早上问候语
- * libJsTimeGreeting({ afternoon: "午后好" }); //自定义下午问候语
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsTimeGreeting-时间问候
  */
 export const libJsTimeGreeting = (greet: LibTimeGreetingParams = {}) => {
   const {

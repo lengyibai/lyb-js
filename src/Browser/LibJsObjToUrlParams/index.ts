@@ -1,9 +1,6 @@
 /** @description 将对象转为地址栏参数
  * @param params 对象参数
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsObjToUrlParams({ name: "John", age: 30, active: true });
- * // "name=John&age=30&active=true"
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsObjToUrlParams-对象转Url参数
  */
 export const libJsObjToUrlParams = (
   params: Record<string, string | number | boolean>

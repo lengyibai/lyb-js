@@ -2,13 +2,7 @@
  * @param title 标题
  * @param color 颜色
  * @param logs 信息
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * //使用红色打印日志
- * libJsColorConsole("错误提示", "red", [{ label: "错误代码", value: 500 }]);
- *
- * //使用蓝色打印简单日志
- * libJsColorConsole("信息", "blue", "操作成功");
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsColorConsole-有色打印
  */
 export const libJsColorConsole = (
   title: string,

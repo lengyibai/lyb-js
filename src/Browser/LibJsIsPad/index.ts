@@ -1,8 +1,5 @@
 /** @description 判断是否为平板
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const isPad = libJsIsPad();
- * console.log(isPad); //true 或 false
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsIsPad-判断平板
  */
 export const libJsIsPad = () => {
   const ua = navigator.userAgent.toLowerCase();

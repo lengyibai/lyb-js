@@ -4,7 +4,7 @@
 
 > 该库为作者在写项目时收集的常用方法，代码简陋，没有严格的边缘处理
 >
-> 鼠标悬浮在每一个方法上都有较为完整的`Jsdoc`提示
+> 在通过`import`引入使用时，鼠标悬浮在每一个方法上都有较为完整的`Jsdoc`提示
 
 ## 起步
 
@@ -13,7 +13,8 @@
 ```ts
 import { LibJs } from "lyb-js";
 
-LibJs.Base.libJsGetDataType("Hellow World!"); //"string"
+const t = LibJs.Base.libJsGetDataType("Hellow World!");
+console.log(t); //"string"
 ```
 
 > 按需引入，打包时就不会把整个库打进去
@@ -21,7 +22,8 @@ LibJs.Base.libJsGetDataType("Hellow World!"); //"string"
 ```ts
 import { libJsGetDataType } from "lyb-js/dist/Base/LibJsGetDataType";
 
-libJsGetDataType("Hellow World!"); //"string"
+const t = libJsGetDataType("Hellow World!");
+console.log(t); //"string"
 ```
 
 > 如果在多个文件使用到同一个方法，建议采用按需引入聚合导出
@@ -34,8 +36,11 @@ export * from "lyb-js/dist/Math/LibJsCalculateExpression";
 //你的项目文件 index.ts
 import { libJsGetDataType,libJsCalculateExpression } from "utils";
 
-libJsGetDataType("Hellow World!"); //"string"
-libJsCalculateExpression("(1+2)-(3*4)/5"); //0.6
+const t = libJsGetDataType("Hellow World!");
+console.log(t); //"string"
+
+const v = libJsCalculateExpression("(1+2)-(3*4)/5");
+conosle.log(v); //0.6
 ```
 
 **通过 `CDN ` 使用 `LibJs`**
@@ -46,7 +51,8 @@ libJsCalculateExpression("(1+2)-(3*4)/5"); //0.6
 <script src="https://unpkg.com/lyb-js/umd/lyb.js"></script>
 
 <script>
-LibJs.Base.libJsGetDataType("Hellow World!"); //"string"
+const t = LibJs.Base.libJsGetDataType("Hellow World!");
+console.log(t); //"string"
 </script>
 ```
 
@@ -163,9 +169,14 @@ LibJs.Base.libJsGetDataType("Hellow World!"); //"string"
 > 返回数据类型
 
 ```ts
-libJsGetDataType(123); //"number"
-libJsGetDataType("hello"); //"string"
-libJsGetDataType([1, 2, 3]); //"array"
+const n = libJsGetDataType(123);
+console.log(n); //"number"
+
+const s = libJsGetDataType("hello");
+console.log(s); //"string"
+
+const a = libJsGetDataType([1, 2, 3]);
+console.log(a); //"array"
 ```
 
 ### LibJsPromiseTimeout-延时执行
@@ -305,8 +316,8 @@ console.log(moved); //[4, 5, 1, 2, 3]
 > 翻转指定索引后面的数组
 
 ```ts
-libReverseArrayFromIndex([1, 2, 3, 4, 5], 1);
-// [1, 2, 5, 4, 3]
+const newArr = libReverseArrayFromIndex([1, 2, 3, 4, 5], 1);
+console.log(newArr); // [1, 2, 5, 4, 3]
 ```
 
 ## File-文件
@@ -394,10 +405,17 @@ console.log(formatted); //1,234,567.89
 > 将秒数格式化为中文时间描述，支持扩展到年
 
 ```ts
-libJsSecondsFormatterChinese(100000); //"1天3小时46分40秒"
-libJsSecondsFormatterChinese(31536000); //"1年"
-libJsSecondsFormatterChinese(3600); //"1小时"
-libJsSecondsFormatterChinese(90); //"1分30秒"
+const a = libJsSecondsFormatterChinese(100000);
+console.log(a); //"1天3小时46分40秒"
+
+const b = libJsSecondsFormatterChinese(31536000);
+console.log(b); //"1年"
+
+const c = libJsSecondsFormatterChinese(3600);
+console.log(c); //"1小时"
+
+const d = libJsSecondsFormatterChinese(90);
+console.log(d); //"1分30秒"
 ```
 
 ## Math-数学
@@ -417,10 +435,12 @@ console.log(result); //0.6
 
 ```ts
 //角度转弧度
-libJsConvertAngle(90, "rad"); //返回 1.5708... (π/2)
+const rad = libJsConvertAngle(90, "rad");
+console.log(rad); //1.5708... (π/2)
 
 //弧度转角度
-libJsConvertAngle(Math.PI, "deg"); //返回 180
+const deg = libJsConvertAngle(Math.PI, "deg");
+console.log(deg); //180
 ```
 
 ### LibJsCoordsAngle-两点角度
@@ -428,9 +448,14 @@ libJsConvertAngle(Math.PI, "deg"); //返回 180
 > 计算两点角度
 
 ```ts
-libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 0 }); //0
-libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 1 }); //45
-libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 }); //90
+const a = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 0 });
+console.log(a); //0
+
+const b = libJsCoordsAngle({ x: 0, y: 0 }, { x: 1, y: 1 });
+console.log(b); //45
+
+const c = libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 });
+console.log(c); //90
 ```
 
 ### LibJsCoordsDistance-两点距离
@@ -438,9 +463,14 @@ libJsCoordsAngle({ x: 0, y: 0 }, { x: 0, y: 1 }); //90
 > 计算两点距离
 
 ```ts
-libJsCoordsDistance({ x: 0, y: 0 }, { x: 3, y: 4 }); //5
-libJsCoordsDistance({ x: 1, y: 1 }, { x: 4, y: 5 }); //5
-libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 }); //0
+const a = libJsCoordsDistance({ x: 0, y: 0 }, { x: 3, y: 4 });
+console.log(a); //5
+
+const b = libJsCoordsDistance({ x: 1, y: 1 }, { x: 4, y: 5 });
+console.log(b); //5
+
+const c = libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 });
+console.log(c); //0
 ```
 
 ### LibJsDecimal-高精度计算
@@ -448,9 +478,14 @@ libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 }); //0
 > 计算两个数的运算结果，并保留指定位数的小数
 
 ```ts
-libJsDecimal(10, 3, "+"); //13
-libJsDecimal(10, 3, "-"); //7
-libJsDecimal(10, 3, "/", 2); //3.33
+const a = libJsDecimal(10, 3, "+");
+console.log(a); //13
+
+const b = libJsDecimal(10, 3, "-");
+console.log(b); //7
+
+const c = libJsDecimal(10, 3, "/", 2);
+console.log(c); //3.33
 ```
 
 ## Misc-杂项
@@ -465,11 +500,12 @@ const rules = [
   { key: "username", verify: /^[a-zA-Z0-9]{3,}$/, msg: "用户名不合法", name: "用户名" },
   { key: "email", verify: /^\S+@\S+\.\S+$/, msg: "邮箱格式不正确", name: "邮箱" },
 ];
-libJsRegFormValidate(form, rules);
-//返回结果: []
+const result1 = libJsRegFormValidate(form, rules);
+console.log(result1); //返回结果: []
 
 const invalidForm = { username: "jo", email: "invalid-email" };
-libJsRegFormValidate(invalidForm, rules);
+const result2 = libJsRegFormValidate(invalidForm, rules);
+console.log(result2);
 //返回结果: [
 //  { key: "username", msg: "用户名不合法", name: "用户名" },
 //  { key: "email", msg: "邮箱格式不正确", name: "邮箱" }
@@ -511,9 +547,14 @@ stepper.down("sub"); // 索引减1
 > 百分比概率结果
 
 ```ts
-libJsProbabilityResult(50); //50% 概率为 true
-libJsProbabilityResult(80); //80% 概率为 true
-libJsProbabilityResult(100); //100% 概率为 true
+const result1 = libJsProbabilityResult(50);
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsProbabilityResult(80); //80% 概率为 true
+console.log(result2); //50% 概率为 true
+
+const result3 = libJsProbabilityResult(100); //100% 概率为 true
+console.log(result3); //50% 概率为 true
 ```
 
 ### LibJsRandom-随机数
@@ -521,8 +562,11 @@ libJsProbabilityResult(100); //100% 概率为 true
 > 随机获取两个数之间的值，包含两数自身
 
 ```ts
-libJsRandom(1, 10); //1 到 10 之间的随机整数
-libJsRandom(1, 10, 2); //1 到 10 之间保留两位小数的随机数
+const result1 = libJsRandom(1, 10); //1 到 10 之间的随机整数
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsRandom(1, 10, 2); //1 到 10 之间保留两位小数的随机数
+console.log(result2); //50% 概率为 true
 ```
 
 ### LibJsRandomColor-随机色
@@ -530,8 +574,11 @@ libJsRandom(1, 10, 2); //1 到 10 之间保留两位小数的随机数
 > 随机 RGBA 颜色
 
 ```ts
-libJsRandomColor(); //生成随机的 RGBA 颜色，默认透明度 1
-libJsRandomColor(0.5); //生成随机的 RGBA 颜色，透明度为 0.5
+const result1 = libJsRandomColor(); //生成随机的 RGBA 颜色，默认透明度 1
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsRandomColor(0.5); //生成随机的 RGBA 颜色，透明度为 0.5
+console.log(result2); //50% 概率为 true
 ```
 
 ### LibJsUniqueRandomNumbers-随机数数组
@@ -539,8 +586,11 @@ libJsRandomColor(0.5); //生成随机的 RGBA 颜色，透明度为 0.5
 > 随机生成指定个数、指定范围不重复的随机数数组
 
 ```ts
-libJsUniqueRandomNumbers(1, 10, 5); //从 1 到 10 中随机生成 5 个唯一数字
-libJsUniqueRandomNumbers(1, 100, 10); //从 1 到 100 中随机生成 10 个唯一数字
+const result1 = libJsUniqueRandomNumbers(1, 10, 5); //从 1 到 10 中随机生成 5 个唯一数字
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsUniqueRandomNumbers(1, 100, 10); //从 1 到 100 中随机生成 10 个唯一数字
+console.log(result2); //50% 概率为 true
 ```
 
 ## Time-时间
@@ -560,10 +610,17 @@ console.log(result); //0: 同一天, 1: 新的一天, -1: 时间戳大于当前�
 > 时间差计算
 
 ```ts
-libJsTimeAgotamp(Date.now() - 3600000); //"1 小时前"
-libJsTimeAgotamp(Date.now() - 86400000); //"1 天前"
-libJsTimeAgotamp(Date.now() - 31536000000); //"1 年前"
-libJsTimeAgotamp(Date.now() - 10000); //"刚刚"
+const result1 = libJsTimeAgotamp(Date.now() - 3600000); //"1 小时前"
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsTimeAgotamp(Date.now() - 86400000); //"1 天前"
+console.log(result2); //50% 概率为 true
+
+const result3 = libJsTimeAgotamp(Date.now() - 31536000000); //"1 年前"
+console.log(result3); //50% 概率为 true
+
+const result4 = libJsTimeAgotamp(Date.now() - 10000); //"刚刚"
+console.log(result4); //50% 概率为 true
 ```
 
 ### LibJsTimeGreeting-时间问候
@@ -571,8 +628,13 @@ libJsTimeAgotamp(Date.now() - 10000); //"刚刚"
 > 根据当前时间返回问候语
 
 ```ts
-libJsTimeGreeting(); //根据当前时间返回默认问候语
-libJsTimeGreeting({ morning: "早安" }); //自定义早上问候语
-libJsTimeGreeting({ afternoon: "午后好" }); //自定义下午问候语
+const result1 = libJsTimeGreeting(); //根据当前时间返回默认问候语
+console.log(result1); //50% 概率为 true
+
+const result2 = libJsTimeGreeting({ morning: "早安" }); //自定义早上问候语
+console.log(result2); //50% 概率为 true
+
+const result3 = libJsTimeGreeting({ afternoon: "午后好" }); //自定义下午问候语
+console.log(result3); //50% 概率为 true
 ```
 

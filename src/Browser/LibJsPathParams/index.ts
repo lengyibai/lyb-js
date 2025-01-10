@@ -1,8 +1,5 @@
 /** @description 获取浏览器地址栏参数
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const params = libJsPathParams();
- * console.log(params); //{ param1: "value1", param2: "value2" }
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsPathParams-地址栏参数
  */
 export const libJsPathParams = () => {
   const v = location.href;

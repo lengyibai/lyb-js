@@ -1,8 +1,5 @@
 /** @description 递归将JSON字符串深度解析为对象
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const obj = libJsDeepJSONParse('{"a": 1, "b": "{\"c\": 2}"}');
- * console.log(obj); //{ a: 1, b: { c: 2 } }
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsDeepJSONParse-深度解析JSON
  */
 export const libJsDeepJSONParse = <T>(data: any): T => {
   //检查是否为字符串并尝试解析

@@ -2,12 +2,8 @@
  * @param min 最小值
  * @param max 最大值
  * @param count 数组长度
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsUniqueRandomNumbers(1, 10, 5); //从 1 到 10 中随机生成 5 个唯一数字
- * libJsUniqueRandomNumbers(1, 100, 10); //从 1 到 100 中随机生成 10 个唯一数字
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsUniqueRandomNumbers-随机数数组
  */
-
 export const libJsUniqueRandomNumbers = (
   min: number,
   max: number,

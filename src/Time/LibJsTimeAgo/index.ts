@@ -1,11 +1,6 @@
 /** @description 时间差计算
  * @param timestamp 毫秒时间戳
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsTimeAgotamp(Date.now() - 3600000); //"1 小时前"
- * libJsTimeAgotamp(Date.now() - 86400000); //"1 天前"
- * libJsTimeAgotamp(Date.now() - 31536000000); //"1 年前"
- * libJsTimeAgotamp(Date.now() - 10000); //"刚刚"
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsTimeAgo-中文时间差
  */
 export const libJsTimeAgo = (timestamp: number) => {
   const timeUnits = [

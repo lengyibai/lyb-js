@@ -2,10 +2,7 @@
  * @description 格式化字节大小
  * @param bytes 字节数
  * @returns ['大小', '单位', '大小及单位']
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const [size, unit, formatted] = libJsFormatterByte(2048);
- * console.log(size, unit, formatted); //2.00 KB 2.00 KB
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsFormatterByte-字节格式化
  */
 export const libJsFormatterByte = (bytes: number) => {
   if (bytes <= 0) return [0, "B", "0 B"];

@@ -1,11 +1,7 @@
 /** @description 计算两点距离
  * @param coord1 起点坐标
  * @param coord2 终点坐标
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsCoordsDistance({ x: 0, y: 0 }, { x: 3, y: 4 }); //5
- * libJsCoordsDistance({ x: 1, y: 1 }, { x: 4, y: 5 }); //5
- * libJsCoordsDistance({ x: 0, y: 0 }, { x: 0, y: 0 }); //0
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsCoordsDistance-两点距离
  */
 export const libJsCoordsDistance = (
   coord1: { x: number; y: number },

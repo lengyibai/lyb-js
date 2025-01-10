@@ -3,10 +3,7 @@
  * @param str 要匹配的字符串
  * @param emailList 电子邮件后缀列表
  * @returns 匹配结果数组
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const emails = libJsMatchEmail("user", ["@gmail.com", "@yahoo.com"]);
- * console.log(emails); //["user@gmail.com", "user@yahoo.com"]
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsMatchEmail-匹配E-Mail
  */
 export const libJsMatchEmail = (str: string, emailList: string[]) => {
   return str.includes("@")

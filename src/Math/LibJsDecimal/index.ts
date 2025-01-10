@@ -4,11 +4,7 @@ import { Decimal } from "decimal.js";
  * @param num1 第一个数
  * @param num2 第二个数
  * @param operator 运算符，支持加减乘除
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsDecimal(10, 3, "+"); //13
- * libJsDecimal(10, 3, "-"); //7
- * libJsDecimal(10, 3, "/", 2); //3.33
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsDecimal-高精度计算
  */
 export const libJsDecimal = (
   num1: number,

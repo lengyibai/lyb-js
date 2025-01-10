@@ -8,10 +8,7 @@ export interface LibJsNumberUnitParams {
  * @param num 数字
  * @param units 单位组，key为单位，value为格式化阈值
  * @returns [数字, 单位]
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * const [value, unit] = libJsNumberUnit(1500, { K: 1000, M: 1000000 });
- * console.log(value, unit); //1.50 K
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberUnit-数字单位
  */
 export const libJsNumberUnit = (num: number, units: LibJsNumberUnitParams) => {
   const decimalValue = new Decimal(num);

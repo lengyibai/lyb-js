@@ -1,9 +1,7 @@
 /** @description 动态设置网站标题及图标
  * @param title 网站标题
  * @param url 网站图标地址
- * @link 了解更多：https://www.npmjs.com/package/lyb-js
- * @example
- * libJsSetTitleIcon("我的网站", "https://example.com/favicon.ico");
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsSetTitleIcon-网站标题图标
  */
 export const libJsSetTitleIcon = (title: string, url: string) => {
   document.title = title;
