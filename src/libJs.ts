@@ -17,12 +17,6 @@ import { libReverseArrayFromIndex } from "./Data/LibReverseArrayFromIndex";
 import { libJsDownloadImageLink } from "./File/LibJsDownloadImageLink";
 import { libJsImageOptimizer } from "./File/LibJsImageOptimizer";
 import { libJsSaveJson } from "./File/LibJsSaveJson";
-import { libJsSecondsFormatterChinese } from "./Formatter/LibJsSecondsFormatterChinese";
-import { libJsFormatterByte } from "./Formatter/LibJsFormatterByte";
-import { libJsMaskPhoneNumber } from "./Formatter/LibJsMaskPhoneNumber";
-import { libJsNumComma } from "./Formatter/LibJsNumComma";
-import { libJsNumberUnit } from "./Formatter/LibJsNumberUnit";
-import { libJsCalculateExpression } from "./Math/LibJsCalculateExpression";
 import { libJsConvertAngle } from "./Math/LibJsConvertAngle";
 import { libJsCoordsAngle } from "./Math/LibJsCoordsAngle";
 import { libJsCoordsDistance } from "./Math/LibJsCoordsDistance";
@@ -37,6 +31,12 @@ import { libJsSameTimeCheck } from "./Time/LibJsSameTimeCheck";
 import { libJsTimeAgo } from "./Time/LibJsTimeAgo";
 import { libJsTimeGreeting } from "./Time/LibJsTimeGreeting";
 import { LibJsNumberStepper } from "./Misc/LibJsNumberStepper";
+import { libJsFormatterByte } from "./Formatter/LibJsFormatterByte";
+import { libJsMaskPhoneNumber } from "./Formatter/LibJsMaskPhoneNumber";
+import { libJsNumberUnit } from "./Formatter/LibJsNumberUnit";
+import { libJsNumComma } from "./Formatter/LibJsNumComma";
+import { libJsSecondsFormatterChinese } from "./Formatter/LibJsSecondsFormatterChinese";
+import { libJsCalculateExpression } from "./Math/LibJsCalculateExpression";
 
 /** @description 基础方法 */
 export const Base = {

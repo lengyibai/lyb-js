@@ -1,6 +1,6 @@
 {
   "name": "lyb-js",
-  "version": "1.2.3",
+  "version": "1.2.7",
   "description": "自用JS方法库",
   "license": "ISC",
   "type": "module",
@@ -10,7 +10,16 @@
     "build": "vite build & tsc"
   },
   "exports": {
-    "./*": "./dist/*"
+    ".": "./dist/index.js",
+    "./Base/*": "./dist/Base/*",
+    "./Browser/*": "./dist/Browser/*",
+    "./Data/*": "./dist/Data/*",
+    "./File/*": "./dist/File/*",
+    "./Formatter/*": "./dist/Formatter/*",
+    "./Math/*": "./dist/Math/*",
+    "./Misc/*": "./dist/Misc/*",
+    "./Random/*": "./dist/Random/*",
+    "./Time/*": "./dist/Time/*"
   },
   "files": [
     "dist",

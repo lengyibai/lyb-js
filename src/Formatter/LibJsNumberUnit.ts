@@ -1,5 +1,5 @@
 import Decimal from "decimal.js";
-import { libJsNumComma } from "../LibJsNumComma";
+import { libJsNumComma } from './LibJsNumComma';
 
 /** @description 将大于或等于单位组的属性值，则使用它的属性名作为单位，你甚至可以用中文键名
  * @param num 数字
