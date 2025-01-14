@@ -139,7 +139,7 @@ console.log(t); //"string"
 
 \- [LibJsRetryRequest-请求重连](#LibJsRetryRequest-请求重连)
 
-\- [LibNumerStepper-数字步进器](#LibNumerStepper-数字步进器)
+\- [LibJsNumberStepper-数字步进器](#LibJsNumberStepper-数字步进器)
 
 
 ### Random-随机
@@ -530,12 +530,12 @@ libJsRetryRequest({
 .catch(err => console.error(err));
 ```
 
-### LibNumerStepper-数字步进器
+### LibJsNumberStepper-数字步进器
 
 > 通过调用方法来增加和减少数字索引
 
 ```ts
-const stepper = new libNumerStepper(10, (index) => console.log(index));
+const stepper = new LibJsNumberStepper(10, (index) => console.log(index));
 stepper.down("add"); // 索引加1
 stepper.updateIndex(5); // 更新索引为5
 stepper.down("sub"); // 索引减1

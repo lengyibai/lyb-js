@@ -36,7 +36,7 @@ import { libJsUniqueRandomNumbers } from "./Random/LibJsUniqueRandomNumbers";
 import { libJsSameTimeCheck } from "./Time/LibJsSameTimeCheck";
 import { libJsTimeAgo } from "./Time/LibJsTimeAgo";
 import { libJsTimeGreeting } from "./Time/LibJsTimeGreeting";
-import { libNumerStepper } from "./Misc/LibNumerStepper";
+import { LibJsNumberStepper } from "./Misc/LibJsNumberStepper";
 
 /** @description 基础方法 */
 export const Base = {
@@ -284,9 +284,9 @@ export const Misc = {
   libJsRetryRequest,
 
   /** @description 数字步进器
-   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibNumerStepper-数字步进器
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberStepper-数字步进器
    */
-  libNumerStepper,
+  LibJsNumberStepper,
 };
 
 /** @description 随机相关方法 */

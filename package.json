@@ -1,13 +1,13 @@
 {
   "name": "lyb-js",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "description": "自用JS方法库",
   "license": "ISC",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "vite build & tsc & esbuild dist/**/*.js --minify --outdir=dist --allow-overwrite"
+    "build": "vite build & tsc"
   },
   "exports": {
     "./*": "./dist/*"
@@ -34,7 +34,6 @@
   ],
   "devDependencies": {
     "@types/node": "^22.10.5",
-    "esbuild": "^0.24.2",
     "typescript": "^5.7.2"
   },
   "dependencies": {

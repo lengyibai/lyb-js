@@ -1,19 +1,21 @@
 /** @description 数字步进器
- * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibNumerStepper-数字步进器
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberStepper-数字步进器
  */
-export class libNumerStepper {
-  /** 数字变动时触发 */
-  private _onChange: (index: number) => void;
-  /** 当前按下状态 */
-  private _isDown = false;
+export class LibJsNumberStepper {
   /** 当前数字索引 */
   private _currentIndex = 0;
+  /** 金额数 */
+  private _numsLength = 0;
+  /** 当前按下状态 */
+  private _isDown = false;
+
   /** 定时器ID */
   private _timerId!: NodeJS.Timeout;
   /** 计时器ID */
   private _intervalId!: NodeJS.Timeout;
-  /** 金额数 */
-  private _numsLength = 0;
+
+  /** 数字变动时触发 */
+  private _onChange: (index: number) => void;
 
   /**
    * @param numsLength 数字长度
@@ -28,7 +30,9 @@ export class libNumerStepper {
     });
   }
 
-  /** @description 按下 */
+  /** @description 按下
+   * @param type 操作类型 add:加 sub:减
+   */
   down(type: "add" | "sub") {
     this._isDown = true;
     this._handleChange(type);
@@ -54,7 +58,9 @@ export class libNumerStepper {
     clearInterval(this._intervalId);
   }
 
-  /** @description 处理数字变化 */
+  /** @description 处理数字变化
+   * @param type 操作类型 add:加 sub:减
+   */
   private _handleChange(type: "add" | "sub") {
     if (type === "add") {
       if (this._currentIndex < this._numsLength - 1) {
