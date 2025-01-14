@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   build: {
-    outDir: "umd",
+    outDir: "../npm",
     lib: {
       formats: ["umd"],
       entry: "main.ts",

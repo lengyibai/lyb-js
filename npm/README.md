@@ -48,7 +48,7 @@ conosle.log(v); //0.6
 > 你可以借助 `script` 标签直接通过 `CDN` 来使用 `LibJs`
 
 ```html
-<script src="https://unpkg.com/lyb-js/umd/lyb.js"></script>
+<script src="https://unpkg.com/lyb-js/lyb.js"></script>
 
 <script>
 const t = LibJs.Base.libJsGetDataType("Hellow World!");

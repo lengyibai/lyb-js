@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "vite build & tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "decimal.js": "^10.4.3",
+    "vite": "^4.5.5"
+  }
+}

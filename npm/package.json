@@ -1,32 +1,23 @@
 {
   "name": "lyb-js",
-  "version": "1.2.7",
+  "version": "1.2.9",
   "description": "自用JS方法库",
   "license": "ISC",
   "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
-  "scripts": {
-    "build": "vite build & tsc"
-  },
+  "types": "./index.d.ts",
+  "main": "./index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./Base/*": "./dist/Base/*",
-    "./Browser/*": "./dist/Browser/*",
-    "./Data/*": "./dist/Data/*",
-    "./File/*": "./dist/File/*",
-    "./Formatter/*": "./dist/Formatter/*",
-    "./Math/*": "./dist/Math/*",
-    "./Misc/*": "./dist/Misc/*",
-    "./Random/*": "./dist/Random/*",
-    "./Time/*": "./dist/Time/*"
+    ".": "./index.js",
+    "./Base/*": "./Base/*",
+    "./Browser/*": "./Browser/*",
+    "./Data/*": "./Data/*",
+    "./File/*": "./File/*",
+    "./Formatter/*": "./Formatter/*",
+    "./Math/*": "./Math/*",
+    "./Misc/*": "./Misc/*",
+    "./Random/*": "./Random/*",
+    "./Time/*": "./Time/*"
   },
-  "files": [
-    "dist",
-    "README.md",
-    "package.json",
-    "umd"
-  ],
   "author": {
     "name": "冷弋白",
     "email": "1329670984@qq.com"
