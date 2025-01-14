@@ -20,7 +20,7 @@ console.log(t); //"string"
 > 按需引入，打包时就不会把整个库打进去
 
 ```ts
-import { libJsGetDataType } from "lyb-js/dist/Base/LibJsGetDataType";
+import { libJsGetDataType } from "lyb-js/Base/LibJsGetDataType";
 
 const t = libJsGetDataType("Hellow World!");
 console.log(t); //"string"
@@ -30,8 +30,8 @@ console.log(t); //"string"
 
 ```ts
 //你的公共工具函数文件 utils.ts
-export * from "lyb-js/dist/Base/LibJsGetDataType";
-export * from "lyb-js/dist/Math/LibJsCalculateExpression";
+export * from "lyb-js/Base/LibJsGetDataType";
+export * from "lyb-js/Math/LibJsCalculateExpression";
 
 //你的项目文件 index.ts
 import { libJsGetDataType,libJsCalculateExpression } from "utils";
