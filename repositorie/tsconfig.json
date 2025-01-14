@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true, // 跳过库文件的类型检查
-    "target": "ES6", //生成的 JavaScript 版本
-    "module": "ES6", //使用的模块系统
+    "noUnusedLocals": true,
     "declaration": true, //生成 .d.ts 文件
-    "outDir": "../npm", //输出目录
-    "rootDir": "src", //指定源文件目录
-    "removeComments": false, //保留注释，确保 JSDoc 在类型声明文件中
-    "strict": true, //启用严格模式
     "esModuleInterop": true, //允许导入 CommonJS 模块
-    "moduleResolution": "node" //使用 Node.js 的模块解析规则
+    "module": "ES6", //使用的模块系统
+    "moduleResolution": "node", //使用 Node.js 的模块解析规则
+    "outDir": "../npm", //输出目录
+    "removeComments": false, //保留注释，确保 JSDoc 在类型声明文件中
+    "rootDir": "src", //指定源文件目录
+    "skipLibCheck": true, // 跳过库文件的类型检查
+    "strict": true, //启用严格模式
+    "target": "ES6", //生成的 JavaScript 版本
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
   ],
 }
