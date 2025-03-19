@@ -141,6 +141,8 @@ console.log(t); //"string"
 
 \- [LibJsNumberStepper-数字步进器](#LibJsNumberStepper-数字步进器)
 
+\- [LibJsEmitter-事件管理器](#LibJsEmitter-事件管理器)
+
 
 ### Random-随机
 
@@ -539,6 +541,33 @@ const stepper = new LibJsNumberStepper(10, (index) => console.log(index));
 stepper.down("add"); // 索引加1
 stepper.updateIndex(5); // 更新索引为5
 stepper.down("sub"); // 索引减1
+```
+
+### LibJsEmitter-事件管理器
+
+> 发布-订阅模式
+
+```ts
+type EventType = {
+  play: [a: number, b: string];
+  stop: string;
+};
+
+//使用方式
+const $bus = LibJsEmitter<EventType>();
+
+$bus.on("play", (c, d) => {
+  console.log(c, d);
+});
+$bus.on("stop", (v) => {
+  console.log(v);
+});
+
+$bus.emit("play", 1, "hello");
+$bus.emit("stop", "4");
+
+$bus.off("play");
+$bus.off("stop");
 ```
 
 ## Random-随机

@@ -37,6 +37,7 @@ import { libJsNumberUnit } from "./Formatter/LibJsNumberUnit";
 import { libJsNumComma } from "./Formatter/LibJsNumComma";
 import { libJsSecondsFormatterChinese } from "./Formatter/LibJsSecondsFormatterChinese";
 import { libJsCalculateExpression } from "./Math/LibJsCalculateExpression";
+import { LibJsEmitter } from './Misc/LibJsEmitter';
 
 /** @description 基础方法 */
 export const Base = {
@@ -287,6 +288,11 @@ export const Misc = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberStepper-数字步进器
    */
   LibJsNumberStepper,
+
+  /** @description 事件管理器
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件管理器
+   */
+  LibJsEmitter,
 };
 
 /** @description 随机相关方法 */
