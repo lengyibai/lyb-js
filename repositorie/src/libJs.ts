@@ -37,7 +37,9 @@ import { libJsNumberUnit } from "./Formatter/LibJsNumberUnit";
 import { libJsNumComma } from "./Formatter/LibJsNumComma";
 import { libJsSecondsFormatterChinese } from "./Formatter/LibJsSecondsFormatterChinese";
 import { libJsCalculateExpression } from "./Math/LibJsCalculateExpression";
-import { LibJsEmitter } from './Misc/LibJsEmitter';
+import { LibJsEmitter } from "./Misc/LibJsEmitter";
+import { LibJsLerp } from "./Math/LibJsLerp";
+import { LibJsNormalizeInRange } from './Math/LibJsNormalizeInRange';
 
 /** @description 基础方法 */
 export const Base = {
@@ -293,6 +295,22 @@ export const Misc = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件管理器
    */
   LibJsEmitter,
+
+  /** @description 线性插值
+   * @param start 当 value = 0 时，返回 start
+   * @param end 当 value = 1 时，返回 end
+   * @param value 插值比例，取值范围 0~1
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsLerp-线性插值
+   */
+  LibJsLerp,
+
+  /** @description 值介于起点与终点之间时返回一个介于0与1之间的数
+   * @param start 起点
+   * @param end 终点
+   * @param value 动态值
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNormalizeInRange-范围归一化
+   */
+  LibJsNormalizeInRange,
 };
 
 /** @description 随机相关方法 */
