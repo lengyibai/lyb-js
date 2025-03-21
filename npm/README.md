@@ -133,6 +133,10 @@ console.log(t); //"string"
 
 \- [LibJsDecimal-高精度计算](#LibJsDecimal-高精度计算)
 
+\- [LibJsLerp-线性插值](#LibJsLerp-线性插值)
+
+\- [LibJsNormalizeInRange-范围归一化](#LibJsNormalizeInRange-范围归一化)
+
 ### Misc-杂项
 
 \- [LibJsRegFormValidate-表单验证](#LibJsRegFormValidate-表单验证)
@@ -489,6 +493,24 @@ console.log(result2); //7
 
 const result3 = libJsDecimal(10, 3, "/", 2);
 console.log(result3); //3.33
+```
+
+### LibJsLerp-线性插值
+
+> 线性插值
+
+```ts
+console.log(LibJsLerp(0, 100, 0.25)); //25
+console.log(LibJsLerp(100, 0, 0.75)); //25
+```
+
+### LibJsNormalizeInRange-范围归一化
+
+> 值介于起点与终点之间时返回一个介于0与1之间的数
+
+```ts
+console.log(LibJsNormalizeInRange(0, 100, 75)); //0.75
+console.log(LibJsNormalizeInRange(100, 0, 75)); //0.25
 ```
 
 ## Misc-杂项
