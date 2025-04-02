@@ -25,5 +25,5 @@ export const libJsDecimal = (
   };
 
   const result = calc[operator](new Decimal(num1), new Decimal(num2));
-  return Number(result.toFixed(point));
+  return Number(result.toFixed(point, Decimal.ROUND_DOWN));
 };

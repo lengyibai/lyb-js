@@ -110,7 +110,7 @@ export const libJsCalculateExpression = (expression: string, point = 2) => {
   try {
     //调用计算器并返回结果
     const result = evaluate(expression);
-    return Number(result.toFixed(point)); //保留指定的小数位数
+    return Number(result.toFixed(point, Decimal.ROUND_DOWN)); //保留指定的小数位数
   } catch (error: any) {
     throw new Error("表达式计算失败：" + error.message);
   }
