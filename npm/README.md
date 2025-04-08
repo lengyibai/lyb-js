@@ -145,7 +145,9 @@ console.log(t); //"string"
 
 \- [LibJsNumberStepper-数字步进器](#LibJsNumberStepper-数字步进器)
 
-\- [LibJsEmitter-事件管理器](#LibJsEmitter-事件管理器)
+\- [LibJsEmitter-事件发射器](#LibJsEmitter-事件发射器)
+
+\- [LibJsClassObservable-类属性监听器](#LibJsClassObservable-类属性监听器)
 
 
 ### Random-随机
@@ -565,7 +567,7 @@ stepper.updateIndex(5); // 更新索引为5
 stepper.down("sub"); // 索引减1
 ```
 
-### LibJsEmitter-事件管理器
+### LibJsEmitter-事件发射器
 
 > 发布-订阅模式
 
@@ -590,6 +592,56 @@ $bus.emit("stop", "4");
 
 $bus.off("play");
 $bus.off("stop");
+```
+
+### LibJsClassObservable-类属性监听器
+
+> 监听`class`的属性值更改
+
+```ts
+import { LibJsClassObservable } from "@/utils/LibJsClassObservable";
+
+export type WinTextType = "luck" | "win" | "reset";
+
+interface Static {
+  /** 用户ID */
+  userID: number;
+  /** 是否为学生 */
+  sdutent: boolean;
+  /** 年龄 */
+  age: number;
+}
+
+/** @description 静态数据 */
+export class DataStore extends LibJsClassObservable<Static> {
+  constructor() {
+    super({
+      userID: 0,
+      sdutent: true,
+      age: 18,
+    });
+  }
+}
+
+const dataStore = new DataStore()
+
+//获取
+const userID = dataStore.getValue("userID"); //0
+
+//更改
+const userID = dataStore.setValue("userID", 1); //1
+
+//Boolean 类型取反
+const stdutent = dataStore.setBooleanValue("sdutent"); //false
+
+//数字类型累加
+const stdutent = dataStore.setNumberValue("age"); //19
+
+//手动触发指定属性监听的所有回调，配合 setValue 第三参数为false，即不自动触发监听的时候，可手动触发
+dataStore.setValue("userID", 3, false);
+setTimeout(()=>{
+  dataStore.updateFake("userID");
+}, 1000)
 ```
 
 ## Random-随机

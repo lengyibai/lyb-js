@@ -1,5 +1,5 @@
-/** @description 事件管理器
- * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件管理器
+/** @description 事件发射器
+ * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件发射器
  */
 export const LibJsEmitter = <T extends Record<string, any>>() => {
   const _eventMap = new Map<keyof T, Function[]>();

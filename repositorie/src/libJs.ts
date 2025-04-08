@@ -39,7 +39,8 @@ import { libJsSecondsFormatterChinese } from "./Formatter/LibJsSecondsFormatterC
 import { libJsCalculateExpression } from "./Math/LibJsCalculateExpression";
 import { LibJsEmitter } from "./Misc/LibJsEmitter";
 import { LibJsLerp } from "./Math/LibJsLerp";
-import { LibJsNormalizeInRange } from './Math/LibJsNormalizeInRange';
+import { LibJsNormalizeInRange } from "./Math/LibJsNormalizeInRange";
+import { LibJsClassObservable } from "./Misc/LibJsClassObservable";
 
 /** @description 基础方法 */
 export const Base = {
@@ -291,10 +292,6 @@ export const Misc = {
    */
   LibJsNumberStepper,
 
-  /** @description 事件管理器
-   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件管理器
-   */
-  LibJsEmitter,
 
   /** @description 线性插值
    * @param start 当 value = 0 时，返回 start
@@ -311,6 +308,16 @@ export const Misc = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNormalizeInRange-范围归一化
    */
   LibJsNormalizeInRange,
+
+  /** @description 事件发射器
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsEmitter-事件发射器
+   */
+  LibJsEmitter,
+
+  /** @description 类属性监听器
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsClassObservable-类属性监听器
+   */
+  LibJsClassObservable,
 };
 
 /** @description 随机相关方法 */
