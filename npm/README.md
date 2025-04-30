@@ -601,8 +601,6 @@ $bus.off("stop");
 ```ts
 import { LibJsClassObservable } from "@/utils/LibJsClassObservable";
 
-export type WinTextType = "luck" | "win" | "reset";
-
 interface Static {
   /** 用户ID */
   userID: number;
