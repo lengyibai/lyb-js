@@ -81,6 +81,8 @@ console.log(t); //"string"
 
 \- [LibJsObjToUrlParams-对象转Url参数](#LibJsObjToUrlParams-对象转Url参数)
 
+\- [LibJsCopy-复制文本到剪贴板](#LibJsCopy-复制文本到剪贴板)
+
 
 ### Data-数据
 
@@ -262,6 +264,14 @@ libJsTagTitleTip("欢迎回来", "来和妲己玩耍吧！");
 ```js
 libJsObjToParams({ name: "John", age: 30, active: true });
 // "name=John&age=30&active=true"
+```
+
+### LibJsCopy-复制文本到剪贴板
+
+> 内部做了兼容
+
+```ts
+libJsCopy("Hello World!")
 ```
 
 ## Data-数据

@@ -41,6 +41,7 @@ import { LibJsEmitter } from "./Misc/LibJsEmitter";
 import { LibJsLerp } from "./Math/LibJsLerp";
 import { LibJsNormalizeInRange } from "./Math/LibJsNormalizeInRange";
 import { LibJsClassObservable } from "./Misc/LibJsClassObservable";
+import { libJsCopy } from "./Browser/LibJsCopy";
 
 /** @description 基础方法 */
 export const Base = {
@@ -104,6 +105,12 @@ export const Browser = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsObjToUrlParams-对象转Url参数
    */
   libJsObjToUrlParams,
+
+  /** @description 复制文本到剪贴板
+   * @param text 要复制的文本
+   * @link 使用方法：https://www.npmjs.com/package/lyb-js#libJsCopy-复制文本到剪贴板
+   */
+  libJsCopy,
 };
 
 /** @description 数据相关方法 */
@@ -291,7 +298,6 @@ export const Misc = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberStepper-数字步进器
    */
   LibJsNumberStepper,
-
 
   /** @description 线性插值
    * @param start 当 value = 0 时，返回 start
