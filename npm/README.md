@@ -75,6 +75,8 @@ console.log(t); //"string"
 
 \- [LibJsPathParams-地址栏参数](#LibJsPathParams-地址栏参数)
 
+\- [LibJsParseQueryString-URL参数转对象](#LibJsParseQueryString-URL参数转对象)
+
 \- [LibJsSetTitleIcon-网站标题图标](#LibJsSetTitleIcon-网站标题图标)
 
 \- [LibJsTagTitleTip-网站标题交互](#LibJsTagTitleTip-网站标题交互)
@@ -239,6 +241,14 @@ console.log(isPad); //true 或 false
 ```ts
 const params = libJsPathParams();
 console.log(params); //{ param1: "value1", param2: "value2" }
+```
+
+### LibJsParseQueryString-URL参数转对象
+
+> 将`URL`参数转为对象
+
+```ts
+libJsParseQueryString("name=lengyibai&age=18"); //{name: "lengyibai", age: "18"}
 ```
 
 ### LibJsSetTitleIcon-网站标题图标
