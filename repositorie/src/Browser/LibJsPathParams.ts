@@ -9,7 +9,7 @@ export const libJsPathParams = (path?: string) => {
 
   const params =
     url.split("&").reduce((pre: Record<string, string>, cur) => {
-      const [k, v] = cur.split(/=(.+)/);
+      const [k, v] = cur.split(/=(.+)/).map(decodeURIComponent);;
       return (pre[k] = v), pre;
     }, {}) || {};
 
