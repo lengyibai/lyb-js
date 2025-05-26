@@ -42,6 +42,7 @@ import { LibJsLerp } from "./Math/LibJsLerp";
 import { LibJsNormalizeInRange } from "./Math/LibJsNormalizeInRange";
 import { LibJsClassObservable } from "./Misc/LibJsClassObservable";
 import { libJsCopy } from "./Browser/LibJsCopy";
+import { LibJsResizeWatcher } from "./Base/LibJsResizeWatcher";
 
 /** @description 基础方法 */
 export const Base = {
@@ -59,6 +60,9 @@ export const Base = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsPromiseTimeout-延时执行
    */
   libJsPromiseTimeout,
+
+  /** @description 监听窗口变化，内部只注册一次resize事件，调用监听自身可取消监听 */
+  LibJsResizeWatcher,
 };
 
 /** @description 浏览器相关方法 */

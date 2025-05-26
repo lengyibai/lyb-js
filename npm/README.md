@@ -64,6 +64,8 @@ console.log(t); //"string"
 
 \- [LibJsPromiseTimeout-延时执行](#LibJsPromiseTimeout-延时执行)
 
+\- [LibJsResizeWatcher-窗口监听](#LibJsResizeWatcher-窗口监听)
+
 
 ### Browser-浏览器
 
@@ -200,6 +202,18 @@ console.log(result3); //"array"
 libJsPromiseTimeout(3000, () => {
   console.log("执行延时函数");
 });
+```
+
+### LibJsResizeWatcher-窗口监听
+
+> 监听窗口变化，内部只注册一次`resize`事件，调用监听自身可取消监听
+
+```ts
+const libJsResizeWatcher = new LibJsResizeWatcher();
+
+const off = libJsResizeWatcher.on((w,h)=>{})
+
+off()
 ```
 
 ## Browser-浏览器
