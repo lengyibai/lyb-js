@@ -8,8 +8,13 @@ type Listener = (w: number, h: number) => void;
 export class LibJsResizeWatcher {
   /** 存储所有监听器及其是否需要立即执行的标志 */
   private _listeners: { cb: Listener; immediate: boolean }[] = [];
+  /** 当前适配模式 */
+  private _mode: "h" | "v" | "hv" = "hv";
 
-  constructor() {
+  constructor(mode: "h" | "v" | "hv") {
+    this._mode = mode;
+
+    if (mode === "h" || mode === "v") return;
     //初始化时绑定窗口 resize 事件
     window.addEventListener("resize", this._handleResize);
   }
@@ -21,6 +26,14 @@ export class LibJsResizeWatcher {
    * @returns 一个函数，用于移除该监听器
    */
   on(cb: Listener, immediate = true): () => void {
+    if (this._mode === "h") {
+      immediate && cb(1920, 1080);
+      return () => {};
+    }else if (this._mode === "v") {
+      immediate && cb(1080, 1920);
+      return () => {};
+    }
+
     const item = { cb, immediate };
     this._listeners.push(item);
     if (immediate) cb(window.innerWidth, window.innerHeight);
