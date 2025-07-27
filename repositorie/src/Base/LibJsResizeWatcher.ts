@@ -2,7 +2,7 @@
  * @description 用于监听浏览器窗口尺寸变化的类
  * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsResizeWatcher-窗口监听
  */
-type Listener = (w: number, h: number) => void;
+type Listener = (w: number, h: number, s: number) => void;
 
 /** @description 监听窗口变化，内部只注册一次resize事件，调用监听自身可取消监听 */
 export class LibJsResizeWatcher {
@@ -26,17 +26,29 @@ export class LibJsResizeWatcher {
    * @returns 一个函数，用于移除该监听器
    */
   on(cb: Listener, immediate = true): () => void {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const orientation = w > h ? "h" : "v";
+
     if (this._mode === "h") {
-      immediate && cb(1920, 1080);
+      immediate && cb(1920, 1080, Math.min(w / 1920, h / 1080));
       return () => {};
-    }else if (this._mode === "v") {
-      immediate && cb(1080, 1920);
+    } else if (this._mode === "v") {
+      immediate && cb(1080, 1920, Math.min(w / 1080, h / 1920));
       return () => {};
+    }
+
+    let s;
+    if (orientation === "h") {
+      s = Math.min(w / 1920, h / 1080);
+    } else {
+      s = Math.min(w / 1080, h / 1920);
     }
 
     const item = { cb, immediate };
     this._listeners.push(item);
-    if (immediate) cb(window.innerWidth, window.innerHeight);
+    if (immediate) cb(window.innerWidth, window.innerHeight, s);
     return () => {
       this._listeners = this._listeners.filter((l) => l !== item);
     };
@@ -46,6 +58,15 @@ export class LibJsResizeWatcher {
   private _handleResize = (): void => {
     const w = window.innerWidth;
     const h = window.innerHeight;
-    this._listeners.forEach(({ cb }) => cb(w, h));
+
+    let s;
+    const orientation = w > h ? "h" : "v";
+
+    if (orientation === "h") {
+      s = Math.min(w / 1920, h / 1080);
+    } else {
+      s = Math.min(w / 1080, h / 1920);
+    }
+    this._listeners.forEach(({ cb }) => cb(w, h, s));
   };
 }
