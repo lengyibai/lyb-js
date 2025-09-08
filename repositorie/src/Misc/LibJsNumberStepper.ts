@@ -2,10 +2,6 @@
  * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsNumberStepper-数字步进器
  */
 export class LibJsNumberStepper {
-  /** 当前数字索引 */
-  private _currentIndex = 0;
-  /** 金额数 */
-  private _numsLength = 0;
   /** 当前按下状态 */
   private _isDown = false;
 
@@ -15,15 +11,14 @@ export class LibJsNumberStepper {
   private _intervalId!: NodeJS.Timeout;
 
   /** 数字变动时触发 */
-  private _onChange: (index: number) => void;
+  private _onChange: (index: "add" | "sub") => void;
 
   /**
    * @param numsLength 数字长度
    * @param onChange 数字变动时触发
    */
-  constructor(numsLength: number, onChange: (index: number) => void) {
+  constructor(onChange: (index: "add" | "sub") => void) {
     this._onChange = onChange;
-    this._numsLength = numsLength;
 
     window.addEventListener("pointerup", () => {
       this._isDown && this._up();
@@ -46,11 +41,6 @@ export class LibJsNumberStepper {
     }, 100);
   }
 
-  /** @description 更新索引 */
-  updateIndex(index: number) {
-    this._currentIndex = index;
-  }
-
   /** @description 抬起 */
   private _up() {
     this._isDown = false;
@@ -63,15 +53,9 @@ export class LibJsNumberStepper {
    */
   private _handleChange(type: "add" | "sub") {
     if (type === "add") {
-      if (this._currentIndex < this._numsLength - 1) {
-        this._currentIndex++;
-        this._onChange(this._currentIndex);
-      }
+      this._onChange("add");
     } else if (type === "sub") {
-      if (this._currentIndex > 0) {
-        this._currentIndex--;
-        this._onChange(this._currentIndex);
-      }
+      this._onChange("sub");
     }
   }
 }
