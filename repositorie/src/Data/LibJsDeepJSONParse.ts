@@ -1,37 +1,35 @@
-/** @description 递归将JSON字符串深度解析为对象（安全版，支持循环引用检测）
+/** @description 递归将JSON字符串深度解析为对象
  * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsDeepJSONParse-深度解析JSON
  */
-export const libJsDeepJSONParse = <T>(data: any, seen = new WeakSet()): T => {
-  // 检查是否为字符串并尝试解析（仅在可能是JSON时才解析）
-  if (typeof data === "string" && /^[\[{]/.test(data.trim())) {
-    try {
-      const parsed = JSON.parse(data);
-      return libJsDeepJSONParse(parsed, seen);
-    } catch {
-      return data as T;
+export const libJsDeepJSONParse = (data: any): any => {
+  // 检查是否为字符串并尝试解析
+  if (typeof data === "string") {
+    const trimmed = data.trim();
+    // 仅当字符串看起来是对象或数组时才尝试解析
+    if (
+      (trimmed.startsWith("{") && trimmed.endsWith("}")) ||
+      (trimmed.startsWith("[") && trimmed.endsWith("]"))
+    ) {
+      try {
+        return libJsDeepJSONParse(JSON.parse(trimmed));
+      } catch {
+        return data; // 如果解析失败，返回原始字符串
+      }
     }
-  }
-
-  // 循环引用检测
-  if (data !== null && typeof data === "object") {
-    if (seen.has(data)) return data as T;
-    seen.add(data);
+    return data; // 非 JSON 字符串直接返回
   }
 
   // 如果是数组，递归处理每个元素
   if (Array.isArray(data)) {
-    return data.map((item) => libJsDeepJSONParse(item, seen)) as T;
+    return data.map((item) => libJsDeepJSONParse(item));
   }
 
   // 如果是对象，递归处理每个属性值
   if (data !== null && typeof data === "object") {
-    return Object.entries(data).reduce(
-      (acc: Record<string, any>, [key, value]) => {
-        acc[key] = libJsDeepJSONParse(value, seen);
-        return acc;
-      },
-      {}
-    ) as T;
+    return Object.keys(data).reduce<Record<string, any>>((acc, key) => {
+      acc[key] = libJsDeepJSONParse(data[key]);
+      return acc;
+    }, {});
   }
 
   // 其他情况返回原始值
