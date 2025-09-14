@@ -43,6 +43,8 @@ import { LibJsNormalizeInRange } from "./Math/LibJsNormalizeInRange";
 import { LibJsClassObservable } from "./Misc/LibJsClassObservable";
 import { libJsCopy } from "./Browser/LibJsCopy";
 import { LibJsResizeWatcher } from "./Base/LibJsResizeWatcher";
+import { LibJsPullUpLoad } from "./Misc/LibJsPullUpLoad";
+
 
 /** @description 基础方法 */
 export const Base = {
@@ -328,6 +330,9 @@ export const Misc = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsClassObservable-类属性监听器
    */
   LibJsClassObservable,
+
+  /** @description 上拉加载 */
+  LibJsPullUpLoad,
 };
 
 /** @description 随机相关方法 */
