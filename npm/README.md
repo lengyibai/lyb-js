@@ -363,6 +363,10 @@ const newArr = libReverseArrayFromIndex([1, 2, 3, 4, 5], 1);
 console.log(newArr); // [1, 2, 5, 4, 3]
 ```
 
+### libJsPickUnique-随机选择未使用元素
+
+> 从候选数组中随机取一个未使用的元素
+
 ## File-文件
 
 ### LibJsDownloadImageLink-图片下载

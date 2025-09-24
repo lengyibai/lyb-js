@@ -44,7 +44,7 @@ import { LibJsClassObservable } from "./Misc/LibJsClassObservable";
 import { libJsCopy } from "./Browser/LibJsCopy";
 import { LibJsResizeWatcher } from "./Base/LibJsResizeWatcher";
 import { LibJsPullUpLoad } from "./Misc/LibJsPullUpLoad";
-
+import { libJsPickUnique } from "./Data/libJsPickUnique";
 
 /** @description 基础方法 */
 export const Base = {
@@ -171,6 +171,9 @@ export const Data = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibReverseArrayFromIndex-数组定位翻转
    */
   libReverseArrayFromIndex,
+
+  /** @description 随机选择未使用元素 */
+  libJsPickUnique,
 };
 
 /** @description 文件相关方法 */
