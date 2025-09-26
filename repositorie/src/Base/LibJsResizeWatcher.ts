@@ -9,7 +9,7 @@ export class LibJsResizeWatcher {
   /** 存储所有监听器及其是否需要立即执行的标志 */
   private _listeners: { cb: Listener; immediate: boolean }[] = [];
   /** 当前适配模式 */
-  private _mode: "h" | "v" | "hv"
+  private _mode: "h" | "v" | "hv";
 
   constructor(mode: "h" | "v" | "hv" = "hv") {
     this._mode = mode;
@@ -17,6 +17,7 @@ export class LibJsResizeWatcher {
     if (mode === "h" || mode === "v") return;
     //初始化时绑定窗口 resize 事件
     window.addEventListener("resize", this._handleResize);
+    window.addEventListener("orientationchange", this._handleResize);
   }
 
   /**
