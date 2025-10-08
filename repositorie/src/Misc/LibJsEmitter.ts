@@ -6,7 +6,7 @@ export const LibJsEmitter = <T extends Record<string, any>>() => {
 
   const on = <K extends keyof T>(
     event: K,
-    listener: T[K] extends any[] ? (...args: T[K]) => void : (arg: T[K]) => void,
+    listener: T[K] extends any[] ? (...args: T[K]) => void : (arg: T[K]) => void
   ) => {
     if (!_eventMap.has(event)) {
       _eventMap.set(event, []);
@@ -14,13 +14,18 @@ export const LibJsEmitter = <T extends Record<string, any>>() => {
     _eventMap.get(event)!.push(listener);
   };
 
-  const emit = <K extends keyof T>(event: K, ...args: T[K] extends any[] ? T[K] : [T[K]]) => {
+  const emit = <K extends keyof T>(
+    event: K,
+    ...args: T[K] extends any[] ? T[K] : [T[K]]
+  ) => {
     _eventMap.get(event)?.forEach((listener) => listener(...(args as any)));
   };
 
   const off = <K extends keyof T>(
     event: K,
-    listener?: T[K] extends any[] ? (...args: T[K]) => void : (arg: T[K]) => void,
+    listener?: T[K] extends any[]
+      ? (...args: T[K]) => void
+      : (arg: T[K]) => void
   ) => {
     if (!listener) {
       _eventMap.delete(event);
@@ -29,11 +34,13 @@ export const LibJsEmitter = <T extends Record<string, any>>() => {
       if (listeners) {
         _eventMap.set(
           event,
-          listeners.filter((l) => l !== listener),
+          listeners.filter((l) => l !== listener)
         );
       }
     }
   };
 
-  return { on, emit, off };
+  const clear = () => _eventMap.clear();
+
+  return { on, emit, off, clear };
 };
