@@ -45,6 +45,7 @@ import { libJsCopy } from "./Browser/LibJsCopy";
 import { LibJsResizeWatcher } from "./Base/LibJsResizeWatcher";
 import { LibJsPullUpLoad } from "./Misc/LibJsPullUpLoad";
 import { libJsPickUnique } from "./Data/libJsPickUnique";
+import { libJsCountdown } from "./Time/LibJsCountdown";
 
 /** @description 基础方法 */
 export const Base = {
@@ -392,4 +393,9 @@ export const Time = {
    * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsTimeGreeting-时间问候
    */
   libJsTimeGreeting,
+
+  /** @description 倒计时
+   * @param endTime 毫秒时间戳
+   */
+  libJsCountdown,
 };

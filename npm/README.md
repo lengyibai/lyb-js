@@ -778,3 +778,24 @@ const result3 = libJsTimeGreeting({ afternoon: "午后好" }); //自定义下午
 console.log(result3); //50% 概率为 true
 ```
 
+### libJsCountdown-倒计时
+
+> 以当前时间为开始时间，传递结束时间，返回年到秒的数值，以及是否结束
+
+```ts
+const result = libJsCountdown("2025-12-01 12:00:00");
+
+console.log(result);
+/*
+{
+  years: "00",
+  months: "01",
+  days: "20",
+  hours: "05",
+  minutes: "34",
+  seconds: "12",
+  ended: false
+}
+*/
+```
+

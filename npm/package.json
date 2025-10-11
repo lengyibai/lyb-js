@@ -1,6 +1,6 @@
 {
   "name": "lyb-js",
-  "version": "1.6.15",
+  "version": "1.6.16",
   "description": "自用JS方法库",
   "license": "ISC",
   "type": "module",
