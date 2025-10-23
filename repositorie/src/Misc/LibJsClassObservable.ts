@@ -115,4 +115,9 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     this.setValue(key, v as T[K], immediately);
     return v;
   }
+
+  /** @description 清空所有监听 */
+  clear() {
+    this.listeners.clear();
+  }
 }

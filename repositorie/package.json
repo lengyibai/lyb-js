@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "vite build & tsc"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
