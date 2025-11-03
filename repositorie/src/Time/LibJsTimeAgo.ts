@@ -1,4 +1,4 @@
-/** @description 时间差计算
+/** @description 时间差计算（支持未来时间：多久后）
  * @param timestamp 毫秒时间戳
  * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsTimeAgo-中文时间差
  */
@@ -12,13 +12,14 @@ export const libJsTimeAgo = (timestamp: number) => {
     { unit: "分钟", milliseconds: 60 * 1000 },
   ];
 
-  const currentTime = Date.now();
-  const timeDifference = currentTime - timestamp;
+  const now = Date.now();
+  const diff = timestamp - now;
+  const absDiff = Math.abs(diff);
 
   for (const { unit, milliseconds } of timeUnits) {
-    if (timeDifference >= milliseconds) {
-      const count = Math.floor(timeDifference / milliseconds);
-      return `${count} ${unit}前`;
+    if (absDiff >= milliseconds) {
+      const count = Math.floor(absDiff / milliseconds);
+      return diff > 0 ? `${count} ${unit}后` : `${count} ${unit}前`;
     }
   }
 
