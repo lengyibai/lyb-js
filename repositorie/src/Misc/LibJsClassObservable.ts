@@ -21,7 +21,12 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     this.data = { ...initialData };
   }
 
-  /** @description 获取值、
+  /** @description 获取所有数据 */
+  getData(): T {
+    return this.data;
+  }
+
+  /** @description 获取值
    * @param key 要获取的键
    * @returns 对应的值
    */
