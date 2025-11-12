@@ -8,6 +8,8 @@ type Listener = (w: number, h: number, s: number) => void;
 export class LibJsResizeWatcher {
   /** 存储所有监听器及其是否需要立即执行的标志 */
   private _listeners: { cb: Listener; immediate: boolean }[] = [];
+  /** 按id存储监听器 */
+  private _listenerMap = new Map<string, Listener>();
   /** 当前适配模式 */
   private _mode: "h" | "v" | "hv";
 
@@ -53,6 +55,26 @@ export class LibJsResizeWatcher {
     return () => {
       this._listeners = this._listeners.filter((l) => l !== item);
     };
+  }
+
+  /** 新增方法：通过id注册监听器（若id已存在会先移除旧的） */
+  onById(id: string, cb: Listener, immediate = true): void {
+    this.offById(id);
+    const remove = this.on(cb, immediate);
+    this._listenerMap.set(id, cb);
+    // 存储移除函数
+    (this._listenerMap as any).set(`${id}_remove`, remove);
+  }
+
+  /** 通过id移除监听器 */
+  offById(...ids: (string | string[])[]): void {
+    const flatIds = ids.flat();
+    for (const id of flatIds) {
+      const remove = (this._listenerMap as any).get(`${id}_remove`);
+      if (typeof remove === "function") remove();
+      this._listenerMap.delete(id);
+      (this._listenerMap as any).delete(`${id}_remove`);
+    }
   }
 
   /** @description 内部 resize 回调函数，调用所有注册的监听器 */

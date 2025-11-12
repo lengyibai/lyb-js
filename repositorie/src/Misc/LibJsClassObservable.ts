@@ -11,6 +11,8 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     keyof T,
     Map<number, (newValue: any, oldValue: any) => void>
   >();
+  /** 按id映射监听索引 */
+  private listenerIds = new Map<string, number>();
   /** 监听函数索引ID */
   private index = 0;
 
@@ -78,6 +80,33 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     };
   }
 
+  /** 新增：通过id监听（若id存在则覆盖旧监听） */
+  onValueById<K extends keyof T>(
+    id: string,
+    key: K,
+    callback: (newValue: T[K], oldValue: T[K]) => void,
+    immediately = true
+  ) {
+    // 移除旧监听
+    this.offValueById(id);
+    const remove = this.onValue(key, callback, immediately);
+    const index = this.index - 1;
+    this.listenerIds.set(id, index);
+    // 存储移除函数
+    (this.listenerIds as any).set(`${id}_remove`, remove);
+  }
+
+  /** 新增：通过id移除监听 */
+  offValueById(...ids: (string | string[])[]): void {
+    const flatIds = ids.flat();
+    for (const id of flatIds) {
+      const remove = (this.listenerIds as any).get(`${id}_remove`);
+      if (typeof remove === "function") remove();
+      this.listenerIds.delete(id);
+      (this.listenerIds as any).delete(`${id}_remove`);
+    }
+  }
+
   /** @description 触发某个键名的所有回调函数，适用于同时监听了多个值的场景，用于切换要显示的值，或者延迟在特定时机通知监听器
    * @param key 要触发的键名
    * @returns 触发的键值
@@ -124,5 +153,6 @@ export class LibJsClassObservable<T extends Record<string, any>> {
   /** @description 清空所有监听 */
   clear() {
     this.listeners.clear();
+    this.listenerIds.clear();
   }
 }
