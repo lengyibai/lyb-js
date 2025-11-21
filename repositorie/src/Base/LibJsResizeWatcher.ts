@@ -18,8 +18,12 @@ export class LibJsResizeWatcher {
 
     if (mode === "h" || mode === "v") return;
     //初始化时绑定窗口 resize 事件
-    window.addEventListener("resize", this._handleResize);
-    window.addEventListener("orientationchange", this._handleResize);
+    window.addEventListener("resize", () => {
+      requestAnimationFrame(this._handleResize);
+    });
+    window.addEventListener("orientationchange", () => {
+      requestAnimationFrame(this._handleResize);
+    });
   }
 
   /**
@@ -35,10 +39,16 @@ export class LibJsResizeWatcher {
     const orientation = w > h ? "h" : "v";
 
     if (this._mode === "h") {
-      immediate && cb(1920, 1080, Math.min(w / 1920, h / 1080));
+      immediate &&
+        requestAnimationFrame(() => {
+          cb(1920, 1080, Math.min(w / 1920, h / 1080));
+        });
       return () => {};
     } else if (this._mode === "v") {
-      immediate && cb(1080, 1920, Math.min(w / 1080, h / 1920));
+      immediate &&
+        requestAnimationFrame(() => {
+          cb(1080, 1920, Math.min(w / 1080, h / 1920));
+        });
       return () => {};
     }
 
@@ -51,7 +61,10 @@ export class LibJsResizeWatcher {
 
     const item = { cb, immediate };
     this._listeners.push(item);
-    if (immediate) cb(window.innerWidth, window.innerHeight, s);
+    immediate &&
+      requestAnimationFrame(() => {
+        cb(window.innerWidth, window.innerHeight, s);
+      });
     return () => {
       this._listeners = this._listeners.filter((l) => l !== item);
     };
