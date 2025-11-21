@@ -155,6 +155,8 @@ console.log(t); //"string"
 
 \- [LibJsClassObservable-类属性监听器](#LibJsClassObservable-类属性监听器)
 
+\- [LibJsHorizontal-游戏横版状态](#LibJsHorizontal-游戏横版状态)
+
 
 ### Random-随机
 
@@ -679,6 +681,10 @@ setTimeout(()=>{
   dataStore.updateFake("userID");
 }, 1000)
 ```
+
+### LibJsHorizontal-游戏横版状态
+
+> 需要传递当前游戏的适配模式
 
 ## Random-随机
 
