@@ -177,6 +177,8 @@ console.log(t); //"string"
 
 \- [LibJsTimeGreeting-时间问候](#LibJsTimeGreeting-时间问候)
 
+\- [LibJsCountdown-倒计时](#LibJsCountdown-倒计时)
+
 
 ## Base-基础
 
@@ -784,7 +786,7 @@ const result3 = libJsTimeGreeting({ afternoon: "午后好" }); //自定义下午
 console.log(result3); //50% 概率为 true
 ```
 
-### libJsCountdown-倒计时
+### LibJsCountdown-倒计时
 
 > 以当前时间为开始时间，传递结束时间，返回年到秒的数值，以及是否结束
 
