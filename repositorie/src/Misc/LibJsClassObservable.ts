@@ -11,6 +11,11 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     keyof T,
     Map<number, (newValue: any, oldValue: any) => void>
   >();
+  /** 全局监听器（监听所有键的更改） */
+  private globalListeners = new Map<
+    number,
+    (key: keyof T, newValue: any, oldValue: any) => void
+  >();
   /** 按id映射监听索引 */
   private listenerIds = new Map<string, number>();
   /** 监听函数索引ID */
@@ -50,8 +55,12 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     const oldValue = this.data[key];
     if (oldValue === value) return value;
     this.data[key] = value;
-    immediately &&
+
+    if (immediately) {
       this.listeners.get(key)?.forEach((fn) => fn(value, oldValue));
+      this.globalListeners.forEach((fn) => fn(key, value, oldValue));
+    }
+
     return value;
   }
 
@@ -94,6 +103,15 @@ export class LibJsClassObservable<T extends Record<string, any>> {
     this.listenerIds.set(id, index);
     // 存储移除函数
     (this.listenerIds as any).set(`${id}_remove`, remove);
+  }
+
+  /** 监听所有键的变化 */
+  onAnyValue(
+    callback: (key: keyof T, newValue: any, oldValue: any) => void
+  ): () => void {
+    const id = this.index++;
+    this.globalListeners.set(id, callback);
+    return () => this.globalListeners.delete(id);
   }
 
   /** 新增：通过id移除监听 */
