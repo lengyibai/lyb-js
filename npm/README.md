@@ -43,19 +43,6 @@ const v = libJsCalculateExpression("(1+2)-(3*4)/5");
 conosle.log(v); //0.6
 ```
 
-**通过 `CDN ` 使用 `LibJs`**
-
-> 你可以借助 `script` 标签直接通过 `CDN` 来使用 `LibJs`
-
-```html
-<script src="https://unpkg.com/lyb-js/lyb.js"></script>
-
-<script>
-const t = LibJs.Base.libJsGetDataType("Hellow World!");
-console.log(t); //"string"
-</script>
-```
-
 ## 目录
 
 ### 基础
