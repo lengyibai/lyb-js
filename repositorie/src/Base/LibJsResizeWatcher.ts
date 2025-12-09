@@ -18,12 +18,8 @@ export class LibJsResizeWatcher {
 
     if (mode === "h" || mode === "v") return;
     //初始化时绑定窗口 resize 事件
-    window.addEventListener("resize", () => {
-      requestAnimationFrame(this._handleResize);
-    });
-    window.addEventListener("orientationchange", () => {
-      requestAnimationFrame(this._handleResize);
-    });
+    window.addEventListener("resize", this._handleResize);
+    window.addEventListener("orientationchange", this._handleResize);
   }
 
   /**
@@ -39,16 +35,10 @@ export class LibJsResizeWatcher {
     const orientation = w > h ? "h" : "v";
 
     if (this._mode === "h") {
-      immediate &&
-        requestAnimationFrame(() => {
-          cb(1920, 1080, Math.min(w / 1920, h / 1080));
-        });
+      immediate && cb(1920, 1080, Math.min(w / 1920, h / 1080));
       return () => {};
     } else if (this._mode === "v") {
-      immediate &&
-        requestAnimationFrame(() => {
-          cb(1080, 1920, Math.min(w / 1080, h / 1920));
-        });
+      immediate && cb(1080, 1920, Math.min(w / 1080, h / 1920));
       return () => {};
     }
 
@@ -61,10 +51,7 @@ export class LibJsResizeWatcher {
 
     const item = { cb, immediate };
     this._listeners.push(item);
-    immediate &&
-      requestAnimationFrame(() => {
-        cb(window.innerWidth, window.innerHeight, s);
-      });
+    immediate && cb(window.innerWidth, window.innerHeight, s);
     return () => {
       this._listeners = this._listeners.filter((l) => l !== item);
     };
@@ -73,10 +60,6 @@ export class LibJsResizeWatcher {
   /** 新增方法：通过id注册监听器（若id已存在会先移除旧的） */
   onById(id: string, cb: Listener, immediate = true): void {
     this.offById(id);
-    const remove = this.on(cb, immediate);
-    this._listenerMap.set(id, cb);
-    // 存储移除函数
-    (this._listenerMap as any).set(`${id}_remove`, remove);
   }
 
   /** 通过id移除监听器 */
