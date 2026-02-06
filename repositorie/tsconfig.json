@@ -10,7 +10,7 @@
     "rootDir": "src", //指定源文件目录
     "skipLibCheck": true, // 跳过库文件的类型检查
     "strict": true, //启用严格模式
-    "target": "ES6" //生成的 JavaScript 版本
+    "target": "esnext" //生成的 JavaScript 版本
   },
   "include": ["src/**/*"]
 }

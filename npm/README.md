@@ -53,6 +53,8 @@ conosle.log(v); //0.6
 
 \- [LibJsResizeWatcher-窗口监听](#LibJsResizeWatcher-窗口监听)
 
+\- [LibIsNull-是否为空值](#LibIsNull-是否为空值)
+
 
 ### Browser-浏览器
 
@@ -206,6 +208,10 @@ const off = libJsResizeWatcher.on((w,h)=>{})
 
 off()
 ```
+
+### LibIsNull-是否为空值
+
+> 判断是否为空值
 
 ## Browser-浏览器
 
@@ -674,6 +680,10 @@ setTimeout(()=>{
 ### LibJsHorizontal-游戏横版状态
 
 > 需要传递当前游戏的适配模式
+
+### LibJsPruneEmpty-对象属性去空值
+
+> 递归对象并去掉对象内的 `undefined`、`null`、`""`
 
 ## Random-随机
 
