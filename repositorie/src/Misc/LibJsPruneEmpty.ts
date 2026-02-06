@@ -1,4 +1,4 @@
-import { libIsNull } from "../Base/LibIsNull";
+import { libJsIsNull } from "../Base/LibJsIsNull";
 
 /** @description 去掉对象内的空值 */
 export const libJsPruneEmpty = (obj: Record<string, any>) => {
@@ -15,7 +15,7 @@ export const libJsPruneEmpty = (obj: Record<string, any>) => {
         return acc;
       }
 
-      if (!libIsNull(value)) {
+      if (!libJsIsNull(value)) {
         acc[key] = value;
       }
 

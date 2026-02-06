@@ -1,3 +1,3 @@
 /** @description 判断是否为空值 */
-export const libIsNull = (value: any) =>
+export const libJsIsNull = (value: any) =>
   value === null || value === undefined || value === "";
