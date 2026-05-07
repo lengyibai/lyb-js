@@ -9,7 +9,12 @@ export const libJsPruneEmpty = (obj: Record<string, any>) => {
         return acc;
       }
 
-      if (value && typeof value === "object" && !Array.isArray(value)) {
+      if (
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        !(value instanceof Date)
+      ) {
         const next = libJsPruneEmpty(value);
         if (next) acc[key] = next;
         return acc;

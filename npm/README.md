@@ -155,6 +155,7 @@ console.log(libJsGetRowValue({ user: { name: "Tom" } }, "user.name")); // "Tom"
 - [LibJsEmitterClose-一次性关闭监听](#libjsemitterclose-一次性关闭监听)
 - [LibJsHorizontal-游戏横版状态](#libjshorizontal-游戏横版状态)
 - [LibJsNumberStepper-数字步进器](#libjsnumberstepper-数字步进器)
+- [LibJsDiffObject-筛出已修改的值](#libjsdiffobject-筛出已修改的值)
 - [LibJsPruneEmpty-对象属性去空值](#libjspruneempty-对象属性去空值)
 - [LibJsPullUpLoad-上拉加载](#libjspullupload-上拉加载)
 - [LibJsRegFormValidate-表单验证](#libjsregformvalidate-表单验证)
@@ -764,15 +765,39 @@ addButton.addEventListener("pointerdown", () => stepper.down("add"));
 subButton.addEventListener("pointerdown", () => stepper.down("sub"));
 ```
 
+### LibJsDiffObject-筛出已修改的值
+
+深度对比对象差异，只返回新对象中发生变更的字段。
+
+```ts
+import { libDiffObject } from "lyb-js/Misc/LibJsDiffObject";
+
+const oldObj = {
+  name: "Tom",
+  profile: { city: "Shanghai", age: 18 },
+  tags: [{ id: 1 }, { id: 2 }],
+};
+
+const newObj = {
+  name: "Jerry",
+  profile: { city: "Shanghai", age: 20 },
+  tags: [{ id: 1 }, { id: 3 }],
+};
+
+console.log(libDiffObject(oldObj, newObj));
+// { name: "Jerry", profile: { age: 20 }, tags: [{ id: 1 }, { id: 3 }] }
+```
+
 ### LibJsPruneEmpty-对象属性去空值
 
-递归移除对象中的空字符串、`null`、`undefined` 和空对象；空数组也会被去掉。
+递归移除对象中的空字符串、`null`、`undefined` 和空对象；空数组也会被去掉。`Date` 会保留原值，不会被递归处理。
 
 ```ts
 import { libJsPruneEmpty } from "lyb-js/Misc/LibJsPruneEmpty";
 
 const result = libJsPruneEmpty({
   name: "Tom",
+  createdAt: new Date("2026-05-07T00:00:00.000Z"),
   empty: "",
   profile: {
     age: undefined,
@@ -782,7 +807,7 @@ const result = libJsPruneEmpty({
 });
 
 console.log(result);
-// { name: "Tom", profile: { city: "Shanghai" } }
+// { name: "Tom", createdAt: 2026-05-07T00:00:00.000Z, profile: { city: "Shanghai" } }
 ```
 
 ### LibJsPullUpLoad-上拉加载

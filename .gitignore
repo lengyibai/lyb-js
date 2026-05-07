@@ -4,3 +4,4 @@ umd
 npm/*
 !npm/package.json
 !npm/README.md
+repositorie/pnpm-lock.yaml
