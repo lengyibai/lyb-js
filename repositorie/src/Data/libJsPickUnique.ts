@@ -1,4 +1,4 @@
-import { libJsRandom } from "../Random/LibJsRandom";
+import { libJsRandom } from "../Random/LibJsRandom.js";
 
 /**
  * @description 从候选数组中随机取一个未使用的元素

@@ -1,4 +1,4 @@
-import { libJsIsNull } from "../Base/LibJsIsNull";
+import { libJsIsNull } from "../Base/LibJsIsNull.js";
 
 /** @description 去掉对象内的空值 */
 export const libJsPruneEmpty = (obj: Record<string, any>) => {

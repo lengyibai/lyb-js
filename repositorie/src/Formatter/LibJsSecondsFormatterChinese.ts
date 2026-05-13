@@ -1,25 +1,18 @@
 import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
+import duration from "dayjs/plugin/duration.js";
 
 dayjs.extend(duration);
 
-/**
- * @description 将秒数格式化为中文时间描述，支持扩展到年
- * @param seconds 秒数
- * @returns 格式化后的中文时间
- * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsSecondsFormatterChinese-中文时间
- */
+/** @description 将秒数格式化为中文时间描述 */
 export const libJsSecondsFormatterChinese = (seconds: number) => {
-  const duration = dayjs.duration(seconds, "seconds");
-
-  const years = Math.floor(duration.asYears());
-  const months = Math.floor(duration.asMonths() % 12);
-  const days = Math.floor(duration.asDays() % 30);
-  const hours = duration.hours();
-  const minutes = duration.minutes();
-  const remainingSeconds = duration.seconds();
-
-  const timeParts = [];
+  const currentDuration = dayjs.duration(seconds, "seconds");
+  const years = Math.floor(currentDuration.asYears());
+  const months = Math.floor(currentDuration.asMonths() % 12);
+  const days = Math.floor(currentDuration.asDays() % 30);
+  const hours = currentDuration.hours();
+  const minutes = currentDuration.minutes();
+  const remainingSeconds = currentDuration.seconds();
+  const timeParts: string[] = [];
 
   if (years > 0) {
     timeParts.push(`${years}年`);

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "build": "tsc"
   },
@@ -8,7 +9,6 @@
   },
   "dependencies": {
     "dayjs": "^1.11.13",
-    "decimal.js": "^10.4.3",
-    "vite": "^4.5.5"
+    "decimal.js": "^10.4.3"
   }
 }

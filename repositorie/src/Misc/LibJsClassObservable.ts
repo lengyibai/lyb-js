@@ -1,4 +1,4 @@
-import { libJsDecimal } from "../Math/LibJsDecimal";
+import { libJsDecimal } from "../Math/LibJsDecimal.js";
 
 /** @description 类属性监听器
  * @link 使用方法：https://www.npmjs.com/package/lyb-js#LibJsClassObservable-类属性监听器

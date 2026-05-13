@@ -1,4 +1,4 @@
-import { LibJsClassObservable } from "./LibJsClassObservable";
+import { LibJsClassObservable } from "./LibJsClassObservable.js";
 
 interface PullUpLoadObservable {
   /** 当前加载状态文案 */
