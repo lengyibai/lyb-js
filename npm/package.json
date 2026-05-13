@@ -1,9 +1,10 @@
 {
   "name": "lyb-js",
-  "version": "1.6.36",
+  "version": "1.6.38",
   "description": "JavaScript utility library",
   "license": "ISC",
   "type": "module",
+  "sideEffects": false,
   "types": "./index.d.ts",
   "main": "./index.js",
   "module": "./index.js",
@@ -23,6 +24,7 @@
   ],
   "exports": {
     ".": "./index.js",
+    "./legacy": "./legacy.js",
     "./Base": "./Base/index.js",
     "./Base/*": "./Base/*",
     "./Browser": "./Browser/index.js",

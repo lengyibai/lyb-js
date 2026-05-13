@@ -1,13 +1,24 @@
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration.js";
 
-dayjs.extend(duration);
+let hasExtendedDuration = false;
+
+const ensureDurationPlugin = () => {
+  if (hasExtendedDuration) {
+    return;
+  }
+
+  dayjs.extend(duration);
+  hasExtendedDuration = true;
+};
 
 /** @description 倒计时，keepUnit 为保留单位时不再使用更高单位进位 */
 export const libJsCountdown = (
   endTime: number,
   keepUnit: "year" | "month" | "day" | "hour" | "minute" | "second"
 ) => {
+  ensureDurationPlugin();
+
   const startTime = dayjs();
   const diff = dayjs(endTime).diff(startTime);
   const time = dayjs.duration(diff);

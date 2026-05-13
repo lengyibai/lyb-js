@@ -1,10 +1,21 @@
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration.js";
 
-dayjs.extend(duration);
+let hasExtendedDuration = false;
+
+const ensureDurationPlugin = () => {
+  if (hasExtendedDuration) {
+    return;
+  }
+
+  dayjs.extend(duration);
+  hasExtendedDuration = true;
+};
 
 /** @description 将秒数格式化为中文时间描述 */
 export const libJsSecondsFormatterChinese = (seconds: number) => {
+  ensureDurationPlugin();
+
   const currentDuration = dayjs.duration(seconds, "seconds");
   const years = Math.floor(currentDuration.asYears());
   const months = Math.floor(currentDuration.asMonths() % 12);
